@@ -1,3 +1,5 @@
+using dotnet_angular.Rotas;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,11 +19,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/hello", () =>{
-
-    return "Olá meu rei";
-
-
-});
+app.MapPessoasRota();
 
 app.Run();
