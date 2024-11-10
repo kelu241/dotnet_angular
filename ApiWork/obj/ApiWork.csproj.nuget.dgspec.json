@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/kelu/Documentos/asp/ApiWork/ApiWork.csproj": {}
+    "/home/kelu241/dotnet-angular/dotnet_angular/ApiWork/ApiWork.csproj": {}
   },
   "projects": {
-    "/home/kelu/Documentos/asp/ApiWork/ApiWork.csproj": {
+    "/home/kelu241/dotnet-angular/dotnet_angular/ApiWork/ApiWork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kelu/Documentos/asp/ApiWork/ApiWork.csproj",
+        "projectUniqueName": "/home/kelu241/dotnet-angular/dotnet_angular/ApiWork/ApiWork.csproj",
         "projectName": "ApiWork",
-        "projectPath": "/home/kelu/Documentos/asp/ApiWork/ApiWork.csproj",
-        "packagesPath": "/home/kelu/.nuget/packages/",
-        "outputPath": "/home/kelu/Documentos/asp/ApiWork/obj/",
+        "projectPath": "/home/kelu241/dotnet-angular/dotnet_angular/ApiWork/ApiWork.csproj",
+        "packagesPath": "/home/kelu241/.nuget/packages/",
+        "outputPath": "/home/kelu241/dotnet-angular/dotnet_angular/ApiWork/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/kelu/.nuget/NuGet/NuGet.Config"
+          "/home/kelu241/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -38,6 +38,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.20, )"
