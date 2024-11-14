@@ -1,3 +1,26 @@
+<!-- <p>
+  {{pessoas$|async| json}}
+</p> -->
+
+
+<div>
+  <input type="search" 
+  [(ngModel)]="valorBuscaPessoa$"
+  (keyup.enter) = "pessoaEncontrada()"
+  >
+  
+  <h1>Busca Pessoa</h1>
+</div>
+
 <p>
-  {{pessoas| json}}
+
+  Pessoa Encontrada:{{ (pessoaEncontrada$ | async )?.nome }}
+
+</p>
+
+
+
+<p *ngFor="let pessoa of pessoas$| async" >
+
+  {{pessoa.nome}}
 </p>

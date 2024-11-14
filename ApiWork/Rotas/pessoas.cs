@@ -20,7 +20,7 @@ public static class pessoas
             Humanos);
 
         app.MapGet("/humano/{nome}", (string nome) =>
-            Humanos.Find((x) => x.Nome == nome));
+            Humanos.Find((x) => x.Nome.StartsWith(nome)));
 
         app.MapPost("/HumanoAdd", (pessoa pessoa ) =>
         {
