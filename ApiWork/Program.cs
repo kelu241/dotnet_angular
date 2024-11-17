@@ -1,4 +1,6 @@
+using dotnet_angular.Data;
 using dotnet_angular.Rotas;
+
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +15,7 @@ builder.Services.AddCors(option => option.AddDefaultPolicy(policy => {
     policy.AllowAnyHeader();
     policy.AllowAnyMethod();
 }));
+builder.Services.AddScoped<AppDbContext>();
 
 
 var app = builder.Build();
@@ -30,5 +33,6 @@ app.UseHttpsRedirection();
 
 app.UseCors();
 app.MapPessoasRota();
+app.AddRotasEstudantes();
 
 app.Run();

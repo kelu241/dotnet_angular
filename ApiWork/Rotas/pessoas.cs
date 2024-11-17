@@ -1,7 +1,7 @@
 
 namespace dotnet_angular.Rotas;
 using dotnet_angular.Models;
-
+using Microsoft.AspNetCore.Mvc;
 
 public static class pessoas
 {
@@ -32,16 +32,20 @@ public static class pessoas
         });
 
 
-        app.MapPut("humano/{id}", (Guid id, pessoa pessoa)=>{
+        app.MapPut("humano/{id}", (Guid id, [FromBody]pessoa pessoa)=>{
 
             var encontrado = Humanos.Find((x) =>
 
             x.Id == id
             );
+                         
 
             if (encontrado==null)
                 return Results.NotFound();
-            return Results.Ok(encontrado);   
+
+            encontrado.Nome = pessoa.Nome;    
+
+            return Results.Ok(Humanos);   
                         
         });
     }

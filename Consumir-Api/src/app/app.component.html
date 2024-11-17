@@ -4,23 +4,45 @@
 
 
 <div>
-  <input type="search" 
-  [(ngModel)]="valorBuscaPessoa$"
-  (keyup.enter) = "pessoaEncontrada()"
-  >
-  
+  <input type="search" [(ngModel)]="valorBuscaPessoa$" (keyup.enter)="pessoaEncontrada()">
+
   <h1>Busca Pessoa</h1>
 </div>
 
-<p>
+<div>
 
-  Pessoa Encontrada:{{ (pessoaEncontrada$ | async )?.nome }}
+  <p>
 
-</p>
+    Pessoa Encontrada:{{ (pessoaEncontrada$ | async )?.nome }}
+
+  </p>
+
+</div>
+
+<div *ngFor="let pessoa of pessoas$| async">
+  <div>
+    
+    <p (click)="retornaPessoa(pessoa)">{{pessoa.nome}}</p>
+   
+  </div>
+
+</div>
+
+<H3>
+  inserir cara
+</H3>
 
 
 
-<p *ngFor="let pessoa of pessoas$| async" >
 
-  {{pessoa.nome}}
-</p>
+<div>
+  <input type="text" [(ngModel)]="nomeAdicionar" (keyup.enter)="AdicionarPessoa()">
+</div>
+
+<h1>MODIFICAR PESSOA</h1>
+
+
+<div>
+  <input type="text" [(ngModel)]="modificar" (keyup.enter)="modifica_pessoa()">
+
+</div>
