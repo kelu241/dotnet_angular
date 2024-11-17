@@ -1,0 +1,27 @@
+
+
+
+docker pull mcr.microsoft.com/mssql/server
+
+
+
+docker run --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=1q2w3e4r@#$" -p 1433:1433 -d mcr.microsoft.com/mssql/server
+
+
+
+Server=localhost,1433;Database=Luciano;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+
+
+
+sudo ./bcp Luciano.dbo.Pessoas format nul -S localhost -U sa -P 1q2w3e4r@#$ -c -t "," -f "formatoPessoas.fmt"
+
+
+
+sudo  /opt/mssql-tools/bin/bcp Luciano.dbo.Pessoas in doc.csv -S localhost -U sa -P 1q2w3e4r@#$ -f formatoPessoas.fmt -C 65001 -F 2
+
+select  *, ROW_NUMBER() OVER (PARTITION by b.cargo_nome ORDER BY a.id_cargo) as k from pessoas a
+inner join  cargo b
+ON a.id_cargo= b.id_cargo
+inner join salario c
+on c.id_salario = b.id_salario
+
